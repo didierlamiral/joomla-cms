@@ -53,7 +53,9 @@ class TagsViewTag extends JViewLegacy
 
 				// URL link to tagged item
 				// Change to new routing once it is merged
-				$link = JRoute::_($item->link);
+				// good SEO Link 
+				$link = JRoute::_(TagsHelperRoute::getItemRoute($item->content_item_id, $item->core_alias, $item->core_catid, $item->core_language, $item->type_alias, $item->router));
+				// $link = JRoute::_($item->link);
 
 				// Strip HTML from feed item description text
 				$description = $item->core_body;
